@@ -71,7 +71,48 @@
   <section id="projects" class="section">
     <div class="section-content">
         <h2>Mes Projets</h2>
-        
+        <div class="projects-container">
+          <!-- Navigation des projets -->
+          <div class="projects-nav">
+              <button class="nav-btn active" data-filter="all">All</button>
+              <button class="nav-btn" data-filter="webdesign">Webdesign</button>
+              <button class="nav-btn" data-filter="videos">Vidéos</button>
+          </div>
+  
+          <!-- Grille des projets -->
+          <div class="projects-grid">
+              <div class="project-card" data-category="webdesign">
+                  <img src="game-boy.png" alt="Game Boy">
+                  <div class="project-title">Game Boy</div>
+              </div>
+  
+              <div class="project-card" data-category="webdesign">
+                  <img src="emmaus.png" alt="Emmaus Connect">
+                  <div class="project-title">Emmaus Connect</div>
+              </div>
+  
+              <div class="project-card" data-category="videos">
+                  <img src="time-to-study.png" alt="Time To Study">
+                  <div class="project-title">Time To Study</div>
+              </div>
+  
+              <div class="project-card" data-category="webdesign">
+                  <img src="kybers.png" alt="Kybers">
+                  <div class="project-title">Kybers</div>
+              </div>
+  
+              <div class="project-card" data-category="videos">
+                  <img src="cr7.png" alt="CR7">
+                  <div class="project-title">CR7</div>
+              </div>
+  
+              <div class="project-card" data-category="webdesign">
+                  <img src="cnt-games.png" alt="CNT Games">
+                  <div class="project-title">CNT Games</div>
+              </div>
+          </div>
+      </div>
+  </section>
     </div>
   </section>
 
@@ -103,6 +144,89 @@ body {
     url("/Portfolio/coolvetica/coolvetica\ condensed\ rg.otf") format("opentype"),
     url("/Portfolio/coolvetica/coolvetica\ rg\ it.otf") format("woff");
 }
+
+.projects-container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 27px;
+    }
+
+    .projects-nav {
+        display: flex;
+        gap: 30px;
+        margin-bottom: 63px;
+        background-color: #0867D5;
+        width: fit-content;
+        margin: 40px auto;
+        padding: 5px 20px;
+        border-radius: 2px;
+    }
+
+    .nav-btn {
+        color: white;
+        background: none;
+        border: none;
+        font-size: 18px;
+        cursor: pointer;
+        padding: 5px 10px;
+        position: relative;
+    }
+
+    .nav-btn.active::after {
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background-color: white;
+    }
+
+
+.projects-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        margin-top: 40px;
+    }
+
+    .project-card {
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+
+    .project-card img {
+        width: 100%;
+        height: 222px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .project-title {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #0867D5;
+        color: white;
+        padding: 10px;
+        text-align: center;
+    }
+
+    @media (max-width: 1024px) {
+        .projects-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .projects-grid {
+            grid-template-columns: 1fr;
+        }
+    }
 
   .title-container {
     text-align: center;
@@ -285,7 +409,6 @@ body {
     max-width: 600px;
     text-align: center;
     z-index: 1;
-    padding: 0;
 }
 
 /* Responsive */
@@ -324,7 +447,7 @@ html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 200px;
+    gap: 190px;
     margin-top: 40px;
 }
 
@@ -374,4 +497,30 @@ html {
     }
 }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+      const navBtns = document.querySelectorAll('.nav-btn');
+      const projects = document.querySelectorAll('.project-card');
+
+      navBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+              // Gestion de l'état actif des boutons
+              navBtns.forEach(b => b.classList.remove('active'));
+              btn.classList.add('active');
+
+              // Filtrage des projets
+              const filter = btn.getAttribute('data-filter');
+              projects.forEach(project => {
+                  if (filter === 'all' || project.getAttribute('data-category') === filter) {
+                      project.style.display = 'block';
+                  } else {
+                      project.style.display = 'none';
+                  }
+              });
+          });
+      });
+  });
+</script>
+
 </html>
