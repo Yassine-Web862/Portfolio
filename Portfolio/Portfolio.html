@@ -10,80 +10,61 @@
   </div>
   
   <div class="nav-links">
-    <a href="#about">Profile</a>
+    <a href="#home">Accueil</a>
+    <a href="#profile">Profile</a>
     <a href="#projects">Projets</a>
-    <a href="#blog">Blog</a>
-    <button class="contact-btn">Contact</button>
+    <a href="#contact"><button class="contact-btn">Contact</button></a>
   </div>
 </nav>
-
-<div class="Container">
-  <img src="Animation - 1726396698387.gif" alt="HI">
-  <h1>Je m'appelle Yassine</h1>
-</div>
 
 <main>
   <!-- Section Accueil -->
   <section id="home" class="section">
-          <div class="title-container">
-              <h2 class="web-title">WEB</h2>
-              <h2 class="designer-title">DESIGNER</h2>
-              <button class="download-btn"><img class="download-icon" src="download.png">Télécharger Mon CV</button>
-          </div>
+    <div class="image-left">
+        <img src="pana.png" alt="UI/UX Design Left">
+    </div>
+    
+    <div class="hero-content">
+      <div class="Container">
+      <img src="Animation - 1726396698387.gif" alt="HI">
+      <h1>Je m'appelle Yassine</h1>
+  </div>
+        <div class="title-container">
+            <h2 class="web-title">WEB</h2>
+            <h2 class="designer-title">DESIGNER</h2>
+            <button class="download-btn">
+                <img class="download-icon" src="download.png" alt="download icon">
+                Télécharger Mon CV
+            </button>
+        </div>
+    </div>
+
+    <div class="image-right">
+        <img src="image2.png" alt="UI/UX Design Right">
+    </div>
   </section>
 
-  <section id="about">
+  <section id="profile" class="section">
+    <div class="section-content">
+        <h2>Mon Profile</h2>
+        <!-- Ajoutez votre contenu ici -->
+    </div>
   </section>
 
-  <section id="projets">
-  </section>
-
-  <section id="contact">
-  </section>
-</main>
-
-  <!-- Section About
-  <section id="about" class="section">
-      <h2>Mon Profile</h2>
-      <div class="about-content">
-        
-      </div>
-  </section>
-
- 
   <section id="projects" class="section">
-      <h2>Mes Projets</h2>
-      <div class="projects-grid">
-          
-      </div>
+    <div class="section-content">
+        <h2>Mes Projets</h2>
+        <!-- Ajoutez votre contenu ici -->
+    </div>
   </section>
-
 
   <section id="contact" class="section">
-      <h2>Contact</h2>
-      <div class="contact-content">
-          
-      </div>
-  </section>-->
-
-<!--<div class="Container2">
-  <img src="pana.png" alt="UI/UX Designer">
-</div>
-
-<div class="Container3">
-  <img src="image2.png" alt="Structure">
-</div>
-
-<div class="Container4">
-  <h2 class="web-title">Web</h2>
-  <h2 class="designer-title">Designer</h2>
-</div>
-
-<div class="gestion">
-<a href="#"><button class="download-btn">Télécharger Mon CV</button></a>
-</div>
-
-</div>-->
+    <div class="section-content">
+        <h2>Contact</h2>
+        <!-- Ajoutez votre contenu ici -->
+    </div>
+  </section>
+</main>
 
 <style>
 body {
@@ -119,6 +100,10 @@ body {
     background: #0867D5;
   }
 
+  .download-icon {
+    padding-right: 10px;
+  }
+
   .navbar {
     display: flex;
     justify-content: space-between;
@@ -129,6 +114,13 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding-bottom: 100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(36, 51, 73, 0.95);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
   }
 
   .nav-links {
@@ -150,7 +142,7 @@ body {
   }
 
   .contact-btn {
-    padding: 6px 34px;
+    padding: 10px 34px;
     border: 2px solid #0867D5;
     border-radius: 10px;
     background: #243349;
@@ -184,49 +176,82 @@ body {
   height: 60px;
 }
 
-.download-icon {
-  padding-right: 10px;
-}
-
-
-
-/*.Container2 {
-  position: absolute;
-  top: 50%;
-  left: 16%;
-  transform: translateY(-50%);
-  display: flex;
-  align-items: center;
-}
-
-.Container3 {
-  position: absolute;
-  right: 17%;
-  transform: translateY(16%);
-}
-
-.Container4 {
-  text-align: center;
-}
-
-.Container4 .web-title {
-  color: #FFFFFF;
-  margin: 0;
-  font-size: 80px;
-  font-family: poppins;
-}
-
-.Container4 .designer-title {
-  color: #FFFFFF;
-  margin: 0;
-  font-size: 80px;
-  font-family: poppins;
-}
-
-  .gestion {
-    padding-top: 50px;
+.section {
+    position: relative;
+    min-height: 80vh;
+    padding: 72px 20px 0;
     display: flex;
     justify-content: center;
-  }*/
+    align-items: center;
+}
+
+.section-content {
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    padding: 50px;
+}
+
+.section-content h2 {
+    color: #FFFFFF;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.nav-links a.active {
+    color: #0867D5;
+}
+
+.image-left {
+    position: absolute;
+    left: 5%;
+    top: 70%;
+    transform: translateY(-50%);
+    width: 25%;
+}
+
+.image-right {
+    position: absolute;
+    right: 5%;
+    top: 70%;
+    transform: translateY(-50%);
+    width: 25%;
+}
+
+.image-left img,
+.image-right img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    z-index: 1;
+    padding: 0 50px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .image-left, .image-right {
+        width: 20%;
+    }
+}
+
+@media (max-width: 768px) {
+    .image-left, .image-right {
+        display: none; /* ou ajustez selon vos besoins */
+    }
+
+    .hero-content {
+        padding: 0;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
 </style>
 </html>
