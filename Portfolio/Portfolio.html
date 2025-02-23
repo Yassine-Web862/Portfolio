@@ -30,12 +30,13 @@
       <h1>Je m'appelle Yassine</h1>
   </div>
         <div class="title-container">
-            <h2 class="web-title">WEB</h2>
-            <h2 class="designer-title">DESIGNER</h2>
-            <button class="download-btn">
+            <h2 class="web">WEB</h2>
+            <h2 class="designer">DESIGNER</h2>
+            <a href="Yassine Cv.pdf" target="_blank"><button class="download-btn">
                 <img class="download-icon" src="download.png" alt="download icon">
                 Télécharger Mon CV
             </button>
+            </a>
         </div>
     </div>
 
@@ -45,15 +46,25 @@
   </section>
 
   <section id="profile" class="section">
+    <h2 class="profile">Mon Profile</h2>
     <div class="section-content">
-        <h2>Mon Profile</h2>
-        <p>Je m'appelle Yassine et je suis passioné par tout ce qui concerne le web en général</p>
-        <p>Mon Parcours est simple, j'ai fais un Bac STMG,
-          ensuite j'ai enchainé avec un BTS SIO
-          (Service informatique aux organisations) 
-          et dans la foulée j'ai travailler chez Emmaus Connect dans la vente principalement et aujourd'hui 
-          je suis Etudiant chez Label Emmaus pour devenir Webdesigner.</p>
-        <img src="profil image.png" alt="Image qui illustre un profile">
+        <div class="content-left">
+            <p>
+                Je suis un développeur web passionné par la création d'expériences numériques 
+                exceptionnelles. Spécialisé dans le développement front-end, je combine créativité 
+                et expertise technique pour donner vie à des interfaces utilisateur modernes 
+                et intuitives.
+            </p>
+            <p>
+                Mon approche du développement web est centrée sur l'utilisateur, 
+                avec un fort accent sur l'accessibilité et la performance. Je reste 
+                constamment à jour avec les dernières technologies et meilleures 
+                pratiques du secteur.
+            </p>
+        </div>
+        <div class="content-right">
+            <img src="profil image.png" alt="Mon profil">
+        </div>
     </div>
   </section>
 
@@ -64,16 +75,16 @@
     </div>
   </section>
 
-  <section id="contact" class="section">
+  <section id="blog" class="section">
     <div class="section-content">
-        <h2>Contact</h2>
+        <h2>Blog</h2>
         
     </div>
   </section>
 
-  <section id="blog" class="section">
+  <section id="contact" class="section">
     <div class="section-content">
-      <h2>Blog</h2>
+      <h2>Contact</h2>
     </div>
   </section>
 </main>
@@ -84,16 +95,34 @@ body {
     background-color: #243349;
   }
 
+@font-face {
+  font-family: "coolvetica";
+  src:
+    local("Trickster"),
+    url("/Portfolio/coolvetica/coolvetica\ compressed\ hv.otf") format("opentype") tech(color-COLRv1),
+    url("/Portfolio/coolvetica/coolvetica\ condensed\ rg.otf") format("opentype"),
+    url("/Portfolio/coolvetica/coolvetica\ rg\ it.otf") format("woff");
+}
+
   .title-container {
     text-align: center;
   }
 
-  .title-container h2 {
+  .web {
     color: #FFFFFF;
-    font-family: jost;
-    font-size: 70px;
+    font-family: coolvetica;
+    font-size: 145px;
     font-weight: 500;
-    margin-top: 3px;
+    margin: 0;
+  }
+
+  .designer {
+    color: #243349;
+    font-family: coolvetica;
+    font-size: 145px;
+    font-weight: 500;
+    margin: 0;
+    -webkit-text-stroke: 3px white;
   }
 
   .download-btn {
@@ -196,6 +225,13 @@ body {
     align-items: center;
 }
 
+.profile {
+  color: #FFFFFF;
+  font-family: jost;
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
 .section-content {
     width: 100%;
     max-width: 1200px;
@@ -205,7 +241,8 @@ body {
 
 .section-content h2 {
     color: #FFFFFF;
-    font-family: poppins;
+    font-family: jost;
+    font-weight: 500;
     font-size: 2.5rem;
     margin-bottom: 40px;
 }
@@ -213,7 +250,6 @@ body {
 .section-content p {
   color: #FFFFFF;
   font-family: poppins;
-  font-size: 20px;
 }
 
 .nav-links a.active {
@@ -270,6 +306,70 @@ body {
 
 html {
     scroll-behavior: smooth;
+}
+
+#profile {
+    position: relative;
+    min-height: 90vh;
+    padding: 72px 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#profile .section-content {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 80px;
+    margin-top: 40px;
+}
+
+#profile .content-left {
+    flex: 1;
+    max-width: 600px;
+}
+
+#profile .content-left p {
+    color: #FFFFFF;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+#profile .content-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#profile .content-right img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Responsive pour la section profile */
+@media (max-width: 768px) {
+    #profile .section-content {
+        flex-direction: column-reverse;
+        gap: 40px;
+    }
+
+    #profile .content-left,
+    #profile .content-right {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    #profile .content-right img {
+        max-width: 100%;
+    }
 }
 </style>
 </html>
